@@ -1,39 +1,47 @@
----
-sidebar_position: 1
-hide_table_of_contents: true
----
+System Setup Guide
 
-# Setup System
+Follow these steps to prepare your environment for local documentation development:
 
-Let's set up your system for local development...
+1. **Install Dependencies**
 
-- Install `nodejs`, `npm` and `yarn` on your system :
+First, ensure you have Node.js, npm, and Yarn installed. If you are using an Arch-based Linux distribution, you can install them with:
+
 ```bash
-$ sudo pacman -S nodejs npm yarn
+sudo pacman -S nodejs npm yarn
 ```
 
-- Clone the `documentation` repository from Github :
+2. **Clone the Documentation Repository**
+
+Next, download the documentation source code from GitHub:
+
 ```bash
-$ git clone https://github.com/archcraft-os/documentation
+git clone https://github.com/archcraft-os/documentation
 ```
 
-- Install required `node modules` in the root directory of the repository :
+3. **Install Project Dependencies**
+
+Navigate into the cloned repository and install the required Node modules:
+
 ```bash
-$ cd documentation
-$ npm install
+cd documentation
+npm install
 ```
 
-- Run the local development server​ :
+4. **Run the Local Development Server**
+
+Now, start the development server to preview changes in your browser:
+
 ```bash
-$ npm run start
+npm run start
 ```
 
-- Add documentations, Edit pages, and when you're done, Build the website :
+5. **Make Changes and Build the Website**
+
+You can now add documentation, edit existing pages, or make other changes. When you're finished editing, generate the production build:
+
 ```bash
-$ npm run build
+npm run build
 ```
-:::note
 
-Make sure the website should build successfully and you test the build on the local server before deploying it to Github (or creating a pull request).
-
-:::
+> **Note:**  
+Before deploying your changes to GitHub or creating a pull request, ensure the site builds successfully and thoroughly test it by running the build locally. This ensures your changes won’t introduce build errors or issues in production.
