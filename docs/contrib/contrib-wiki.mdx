@@ -1,41 +1,55 @@
----
-sidebar_position: 3
-hide_table_of_contents: false
----
+How to Improve the Archcraft Wiki
 
-# Improve Wiki
+If you would like to contribute new or updated documentation to the Archcraft Wiki, please follow this step-by-step guide. This will help you get started and ensure your contributions fit neatly into the existing structure.
 
-Follow this guide if you want to add documentation in Archcraft Wiki...
+## Prerequisites
 
-## Prerequisite
+Before you start, make sure you:
 
-- [Setup](setup-env.mdx) the local development environment, If you want to work locally. 
-- You should have the basic understanding of the syntax of [Markdown](https://www.markdownguide.org/cheat-sheet) and [MDX](https://mdxjs.com). See [Docusaurus Markdown Features](https://docusaurus.io/docs/markdown-features).
-- You, at least know how to *fork*, *clone* a repository and create a *pull request*.
+1. **Have a local development environment set up**  
+   - If you want to work locally on your computer, you need to clone the Archcraft Docs repository and install the necessary dependencies (for example, Node.js and Yarn or npm are usually required for Docusaurus sites).
+2. **Understand Markdown and MDX**  
+   - Documentation files are written in Markdown (`.md`) and sometimes MDX (`.mdx`, Markdown with embedded JSX). Brush up on [Docusaurus Markdown Features](https://docusaurus.io/docs/markdown-features) to get familiar with the syntax.
+3. **Know how to use Git and GitHub**  
+   - You should know how to fork a repository, clone it to your computer, make changes, and create a Pull Request on GitHub to suggest your documentation updates.
 
-## Files and format
+## File Organization and Format
 
-The **docs** directory has subdirectories (to categories documentations) which contains
-the `.md` and `.mdx` files for each wiki post and a `_category_.json` file for docs category.
+The documentation is organized in the `docs` directory. This directory contains multiple subdirectories. Each subdirectory represents a category (for example, a topic like “boot-iso”). Inside these, you’ll find:
 
-- The `_category_.json` file is used to label and position (on sidebar) the category.
-- Here's the example of `Boot Archcraft` section of our wiki
+- One or more `.md` or `.mdx` files (each file is a wiki/documentation page).
+- A `_category_.json` file that sets properties for the category.
+
+**Directory structure example:**
 ```
-docs                          # Main Directory
-└── boot-iso                  # Doc Category
-   ├── _category_.json        # Category Properties
-   ├── boot-with-usb.mdx      # Wiki Page
-   └── boot-with-grub.mdx     # Another wiki page in same category
+docs/                            # Main documentation directory
+└── boot-iso/                    # Category folder (e.g., "Boot Archcraft")
+    ├── _category_.json          # Category settings (title and position in sidebar)
+    ├── boot-with-usb.mdx        # Page: How to boot with USB
+    └── boot-with-grub.mdx       # Page: How to boot with GRUB
 ```
 
-## Front matter
+- The `_category_.json` file defines how this category shows up in the sidebar (its label/title and order).
 
-In `front matter`, You can specify the position of doc in category, etc.
-```yml {2}
+## Using Front Matter
+
+Each documentation file starts with a **front matter** block (between `---` lines at the top of the file).
+Here is how it looks:
+
+```
 ---
 sidebar_position: 1
 hide_table_of_contents: true
 ---
 ```
 
-> For more info, visit [Docusaurus:Docs](https://docusaurus.io/docs/docs-introduction)
+- `sidebar_position`: Determines the order of this file in the sidebar (lower numbers appear higher up).
+- `hide_table_of_contents`: If set to `true`, the table of contents won’t display for this doc.
+
+Adjust these values based on where you want your page to show up and if you want to hide the table of contents for your page.
+
+## Additional Resources
+
+- For more detail on formatting and advanced features in Docusaurus documentation, see the [Docusaurus Docs](https://docusaurus.io/docs).
+
+If you follow these steps, your contribution will be easier to review and merge. Thank you for helping make the Archcraft Wiki better!
