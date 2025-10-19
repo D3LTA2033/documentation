@@ -1,62 +1,103 @@
+# How to Translate the Archcraft Wiki
+
+If you want to help make the Archcraft Wiki available in your language, just follow this guide! We'll break down each step so it's easy to understand—even if it's your first time contributing to an open source project.
+
 ---
-sidebar_position: 4
-hide_table_of_contents: false
+
+## Prerequisites
+
+Before you start translating, make sure you have the following:
+- **Local Development Setup:**  
+  If you want to work on your own computer, you need to set up the local development environment for the Archcraft Wiki. This usually means having [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) installed.
+
+- **Basic Markdown/MDX Knowledge:**  
+  The wiki uses Markdown and MDX formats for documentation. You should know basic Markdown syntax (like headings, lists, links). If you're not familiar, check out the official [Docusaurus Markdown Features](https://docusaurus.io/docs/markdown-features).
+
+- **Git and GitHub Basics:**  
+  You should know how to:
+  - Fork a repository on GitHub
+  - Clone a repository to your local machine
+  - Create a pull request to submit your translations
+
 ---
-
-# Translate Wiki
-
-Follow this guide if you want to translate the Archcraft Wiki...
-
-## Prerequisite
-
-- [Setup](setup-env.mdx) the local development environment, If you want to work locally. 
-- You should have the basic understanding of the syntax of [Markdown](https://www.markdownguide.org/cheat-sheet) and [MDX](https://mdxjs.com). See [Docusaurus Markdown Features](https://docusaurus.io/docs/markdown-features).
-- You, at least know how to *fork*, *clone* a repository and create a *pull request*.
 
 ## Configuration
 
-Edit the `docusaurus.config.js` file and add the correct **[i18n locale](https://www.npmjs.com/package/i18n-iso-countries)**
+To add support for your language, you need to update the project's `docusaurus.config.js` file.
 
-**For Ex :** If you want to translate to *Russian*, Add <kbd>ru</kbd> in `locales:` section -
-```jsx {4-8}
-  // Translation
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr', 'ru'],
-      ru: {
-        label: 'Russian',
-        direction: 'ltr',
-      },
+For example, to add Russian support:
+
+1. **Open** `docusaurus.config.js` in the root folder.
+2. **Find** the `i18n` section.
+3. **Add your language code and configuration:**
+
+```js
+// Translation settings
+i18n: {
+  defaultLocale: 'en',
+  locales: ['en', 'fr', 'ru'],
+  ru: {
+    label: 'Russian',
+    direction: 'ltr', // ltr = Left-to-right
   },
+},
 ```
+- Replace `'ru'` and `'Russian'` with your language code and label if you are translating into a different language.
 
-## Translate
+---
 
-Open the terminal (in the root directory of the website) and...
+## Translating Step-by-Step
 
-- Create the directory for locale inside `i18n`.
-```bash
-$ mkdir -p i18n/ru
-```
+Now, let's set up the translation files and start working!
 
-- Run the write-translations command:
-```bash
-$ npm run write-translations -- --locale ru
-```
+1. **Open your terminal in the website project's root directory.**
 
-- Copy the original doc files inside the translation directories:
-```bash
-$ mkdir -p i18n/ru/docusaurus-plugin-content-docs/current
-$ cp -r blog/* i18n/ru/docusaurus-plugin-content-blog
-$ cp -r news/* i18n/ru/docusaurus-plugin-content-blog-news
-$ cp -r docs/* i18n/ru/docusaurus-plugin-content-docs/current
-```
+2. **Create a folder for your locale inside the `i18n` directory.**  
+   For Russian (`ru`):
 
-- Start your localized site in dev mode, using the locale of your choice, Your site is accessible at `http://localhost:3000/ru`
-```bash
-$ npm run start -- --locale ru
-```
+   ```
+   mkdir -p i18n/ru
+   ```
 
-- Translate all the files inside `i18n/ru` directory. And when you're done, Create a pull request with your translations.
+3. **Generate translation files:**  
+   Use Docusaurus to create the translation JSON files for your language.
 
-> For more info, visit [Docusaurus:i18n](https://docusaurus.io/docs/i18n/tutorial)
+   ```
+   npm run write-translations -- --locale ru
+   ```
+
+4. **Copy original site content to your translation directories:**
+
+   ```
+   mkdir -p i18n/ru/docusaurus-plugin-content-docs/current
+   cp -r blog/* i18n/ru/docusaurus-plugin-content-blog
+   cp -r news/* i18n/ru/docusaurus-plugin-content-blog-news
+   cp -r docs/* i18n/ru/docusaurus-plugin-content-docs/current
+   ```
+
+   - This prepares folders for your translated documentation, blog, and news.
+
+5. **Run the site in your chosen language (development mode):**  
+   This will let you preview the translation as you work!
+
+   ```
+   npm run start -- --locale ru
+   ```
+   - Replace `ru` with your language code if it's different.
+   - The site will be accessible at: [http://localhost:3000/ru](http://localhost:3000/ru)
+
+6. **Translate the files:**  
+   Open the files inside `i18n/ru` (or your language code folder) and replace the English text with your translations. Make sure to keep Markdown formatting intact!
+
+7. **Submit your translations:**  
+   - When you finish translating, push your changes to your forked repository on GitHub.
+   - Create a pull request (PR) to the main Archcraft Wiki repo. Write a clear title and description, mentioning which language you've translated.
+
+---
+
+**Need More Help?**
+
+- For a detailed explanation, see the [Docusaurus i18n documentation](https://docusaurus.io/docs/i18n/introduction).
+- If you have any questions, please ask in the community or open an issue!
+
+Happy translating!
