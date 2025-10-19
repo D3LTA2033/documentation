@@ -1,65 +1,81 @@
----
-sidebar_position: 2
-hide_table_of_contents: false
----
+How to Write Tutorials for Archcraft
 
-# Write Tutorials
+This guide is designed to help you create high-quality, consistent, and discoverable tutorials for the Archcraft community. Please read each section carefully before submitting your tutorial.
 
-Follow this guide if you want to write tutorials for Archcraft...
+## Prerequisites
 
-## Prerequisite
+Before you get started, please ensure that you have:
 
-- [Setup](setup-env.mdx) the local development environment, If you want to work locally. 
-- You should have the basic understanding of the syntax of [Markdown](https://www.markdownguide.org/cheat-sheet) and [MDX](https://mdxjs.com). See [Docusaurus Markdown Features](https://docusaurus.io/docs/markdown-features).
-- You, at least know how to *fork*, *clone* a repository and create a *pull request*.
+1. **A Local Development Environment**  
+   - Set up Node.js, npm/yarn, and git on your system.  
+   - Clone the Archcraft docs repository to work locally, making it easier to preview changes.
 
-## Files and format
+2. **Basic Knowledge**  
+   - You should have a working knowledge of Markdown and MDX syntax. See [Docusaurus Markdown Features](https://docusaurus.io/docs/markdown-features) for helpful tips.  
+   - Be comfortable forking repositories, cloning them to your machine, and creating pull requests via GitHub.
 
-The **blog** directory contains all the `.md` and `.mdx` files for tutorials.
+## File Structure and Format
 
-- To add a new tutorial, just create a new file with the correct format.
-- The Format is important here, The format structure is :
+All tutorial files reside in the `blog` directory of the project. Ensure your tutorial files follow this structured format for consistency and easier navigation.
+
 ```
-YEAR                          # Directory
-├── month-date-post-NAME.mdx  # .md or .mdx file
-└── month-date                # Directory
-   ├── Images                 # Directory
-   └── post-NAME.mdx          # .md or .mdx file
-```
-
-## Title and tags
-
-Add appropriate slug, title and tags in the `front matter` of the file you create.
-```yml
----
-slug: NUM-post-NAME
-title: TITLE FOR THE POST
-authors: ID
-tags: [TAG1, TAG2]
----
+blog/
+  YEAR/                             # Example: 2024/
+    month-date-post-NAME.mdx        # Main tutorial file (or .md)
+    month-date/                     # Optionally, a folder for related resources
+      Images/                       # Store any tutorial images here
+      post-NAME.mdx                 # Related or broken-down modules in sub-files
 ```
 
-## Author
+- The main filename format is: `month-date-post-NAME.mdx` (e.g., `06-12-how-to-install-awesomewm.mdx`).
 
-Add your details in the file **`authors.yml`** and add your ID in the `front matter` of the file you created.
+## Creating a Tutorial
 
-`authors.yml`
-```yml
-...
-ID:
-  name: YOUR_NAME
-  title: ABOUT_YOU
-  url: https://github.com/USERNAME
-  image_url: https://github.com/USERNAME.png
-...
+1. **Create a New File**  
+   - Use the filename pattern: `month-date-post-NAME.mdx` in the correct `YEAR/` folder.
+
+2. **Add Images/Assets**  
+   - Place related images inside the `Images/` subdirectory (`YEAR/month-date/Images/`).
+
+3. **Populate Front Matter**  
+   Each tutorial file should begin with a front matter block to provide metadata:
+
+   ```yaml
+   ---
+   slug: 06-how-to-install-awesomewm      # Unique identifier (suggested: month + short name)
+   title: How to Install AwesomeWM        # Descriptive, concise title
+   authors: your_github_id                # Reference to your profile in authors.yml
+   tags: [awesomewm, installation, archcraft, window-manager] # Relevant topics
+   ---
+   ```
+
+4. **Write Clear Content**  
+   - Ensure your tutorial has a logical progression, step-by-step instructions, and relevant code or command examples.  
+   - Use Markdown/MDX for formatting.  
+   - Include headings, lists, and images/screenshots as needed.
+
+## Author Attribution
+
+For proper attribution, add and update your author profile in `authors.yml` (in the root or `.github/` directory). 
+
+Example entry in `authors.yml`:
+
+```yaml
+your_github_id:
+  name: Your Name
+  title: Your Role or Description
+  url: https://github.com/your_github_username
+  image_url: https://github.com/your_github_username.png
 ```
 
-`Front matter`
-```yml {3}
-slug: NUM-post-NAME
-title: TITLE FOR THE POST
-authors: ID
-tags: [TAG1, TAG2]
-```
+- Set `authors: your_github_id` in your tutorial file’s front matter to link your profile.
 
-> For more info, visit [Docusaurus:Blog](https://docusaurus.io/docs/blog)
+## Final Checklist
+
+- [ ] Confirm filenames & directories follow the structure above
+- [ ] Front matter includes a unique slug, descriptive title, author(s), and relevant tags
+- [ ] Images are in their own directory, properly linked in the tutorial
+- [ ] Your author profile exists in `authors.yml`
+- [ ] The tutorial is proofread for clarity and completeness
+
+For further information and best practices, consult the [Docusaurus Blog Documentation](https://docusaurus.io/docs/blog).
